@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-jakarta), system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-bricolage), system-ui, -apple-system, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
@@ -11,6 +11,16 @@
     background-color: #f8fafc;
     color: #0f2942;
     font-family: var(--font-sans);
+    touch-action: manipulation;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  button {
+    touch-action: manipulation;
+    user-select: none;
   }
 }
 
