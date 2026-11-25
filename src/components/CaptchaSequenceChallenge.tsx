@@ -165,7 +165,7 @@ export function CaptchaSequenceChallenge({
               <motion.button
                 key={`slot-${slotIdx}`}
                 whileTap={!verified && chosenStep ? { scale: 0.94 } : undefined}
-                animate={chosenStep ? { scale: [0.96, 1] } : undefined}
+                animate={{ scale: chosenStep ? 1 : 0.98 }}
                 transition={{ type: 'spring', stiffness: 460, damping: 24 }}
                 type="button"
                 disabled={verified || !chosenStep}

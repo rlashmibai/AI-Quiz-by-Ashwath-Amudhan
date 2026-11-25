@@ -445,11 +445,7 @@ function StandardQuestionCard({
             <motion.button
               key={`${question.id}-opt-${idx}`}
               whileTap={!hasAnswered ? { scale: 0.96 } : undefined}
-              animate={
-                hasAnswered && isSelected
-                  ? { scale: [1, 1.02, 1] }
-                  : undefined
-              }
+              animate={{ scale: hasAnswered && isSelected ? 1.01 : 1 }}
               transition={{ type: 'spring', stiffness: 450, damping: 24 }}
               type="button"
               disabled={hasAnswered}
