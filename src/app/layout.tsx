@@ -11,7 +11,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Artificial Intelligence Quiz — Tricky Toddlers',
+  title: 'Artificial Intelligence Quiz by Tricky Toddlers',
   description:
     'Artificial Intelligence Quiz by Tricky Toddlers for parents, teachers, and students at the school innovation exhibition.',
   appleWebApp: {
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: 'Artificial Intelligence Quiz — Tricky Toddlers',
+    title: 'Artificial Intelligence Quiz by Tricky Toddlers',
     description:
       'Artificial Intelligence Quiz by Tricky Toddlers for parents, teachers, and students at the school innovation exhibition.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Artificial Intelligence Quiz — Tricky Toddlers',
+    title: 'Artificial Intelligence Quiz by Tricky Toddlers',
     description:
       'Artificial Intelligence Quiz by Tricky Toddlers for parents, teachers, and students at the school innovation exhibition.',
   },

@@ -187,7 +187,7 @@ export function OfflineIndicator({ isOnline }: { isOnline: boolean }) {
       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-100 border border-amber-300 text-amber-950 text-xs sm:text-sm font-semibold"
     >
       <WifiOff className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-      <span>Offline Mode — Ready to Play</span>
+      <span>Offline Mode: Ready to Play</span>
     </div>
   );
 }

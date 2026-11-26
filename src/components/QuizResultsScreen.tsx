@@ -35,7 +35,7 @@ function getAchievementTier(score: number): AchievementTier {
       imageSrc: '/images/achievements/explorer.jpg',
       imageAlt: '3D adventure compass illustration for AI Explorer',
       message:
-        "Every great discovery starts with curiosity! Keep exploring the exciting world of AI — you're off to a wonderful start!",
+        "Every great discovery starts with curiosity! Keep exploring the exciting world of AI, and you're off to a wonderful start!",
       gradientClass: 'from-teal-500 via-emerald-500 to-cyan-500',
       badgeBgClass: 'bg-teal-600 text-white',
       scoreColorClass: 'text-teal-700',
@@ -109,7 +109,7 @@ function getAchievementTier(score: number): AchievementTier {
     imageSrc: '/images/achievements/champion.jpg',
     imageAlt: '3D golden championship trophy illustration for AI Champion',
     message:
-      "Phenomenal mastery! You're an unstoppable AI Champion — ready to imagine, innovate, and inspire the future!",
+      "Phenomenal mastery! You're an unstoppable AI Champion, ready to imagine, innovate, and inspire the future!",
     gradientClass: 'from-amber-500 via-orange-500 to-rose-500',
     badgeBgClass: 'bg-gradient-to-r from-amber-500 to-orange-500 text-white',
     scoreColorClass: 'text-amber-600',
@@ -249,14 +249,14 @@ export function QuizResultsScreen({
         </div>
 
         {/* Screenshot-Worthy 2-Column Achievement Certificate Body */}
-        <div className="flex-1 p-4 sm:p-7 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-center">
+        <div className="flex-1 p-4 sm:p-6 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-7 items-center">
           {/* Left Visual Achievement Badge & Illustration */}
-          <div className="md:col-span-5 flex flex-col items-center text-center gap-3">
+          <div className="md:col-span-5 h-full flex flex-col items-center justify-center text-center gap-4 rounded-2xl sm:rounded-3xl bg-slate-50/80 border border-slate-200/70 p-4 sm:p-6">
             <motion.div
               initial={{ scale: 0.85, rotate: -4 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 18, delay: 0.1 }}
-              className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-white shadow-md ring-2 ring-slate-200/80"
+              className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 max-w-full aspect-square rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-white shadow-md ring-2 ring-slate-200/80"
             >
               <img
                 src={tier.imageSrc}
@@ -266,7 +266,7 @@ export function QuizResultsScreen({
             </motion.div>
 
             <div
-              className={`inline-flex items-center gap-2 px-4 py-1.5 sm:px-5 sm:py-2 rounded-2xl font-display text-base sm:text-xl font-bold shadow-xs ${tier.badgeBgClass}`}
+              className={`inline-flex items-center gap-2.5 px-5 py-2 sm:px-6 sm:py-2.5 rounded-2xl font-display text-lg sm:text-xl md:text-2xl font-bold shadow-xs ${tier.badgeBgClass}`}
             >
               <AchievementIcon id={tier.id} />
               <span>{tier.title}</span>
@@ -274,33 +274,33 @@ export function QuizResultsScreen({
           </div>
 
           {/* Right Score, Encouraging Message, Thank You & Restart */}
-          <div className="md:col-span-7 flex flex-col items-center md:items-start text-center md:text-left space-y-3.5 sm:space-y-4">
+          <div className="md:col-span-7 flex flex-col items-center md:items-start justify-center text-center md:text-left space-y-4 sm:space-y-5 md:px-2">
             <div>
-              <p className="text-sm sm:text-lg font-semibold text-slate-500">
+              <p className="text-base sm:text-xl md:text-2xl font-semibold text-slate-500">
                 Your Score
               </p>
               <div
-                className={`mt-0.5 font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tabular-nums ${tier.scoreColorClass}`}
+                className={`mt-1 font-display text-5xl sm:text-6xl md:text-7xl font-extrabold tabular-nums ${tier.scoreColorClass}`}
               >
                 {finalScore} / 100
               </div>
             </div>
 
-            <div className="w-full rounded-2xl bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4">
-              <p className="text-sm sm:text-lg font-semibold text-[#0f2942] leading-snug">
+            <div className="w-full rounded-2xl bg-slate-50 border border-slate-200/80 p-4 sm:p-5 md:p-6">
+              <p className="text-base sm:text-xl md:text-[1.35rem] font-semibold text-[#0f2942] leading-relaxed">
                 {tier.message}
               </p>
             </div>
 
-            <div className="w-full pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="w-full pt-3 sm:pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="space-y-0.5">
-                <p className="text-base sm:text-xl font-bold text-[#0f2942]">
+                <p className="text-lg sm:text-2xl font-bold text-[#0f2942]">
                   Thank you for participating!
                 </p>
-                <p className="text-xs sm:text-base text-slate-600">
+                <p className="text-sm sm:text-lg text-slate-600">
                   Keep exploring. Keep learning.
                 </p>
-                <p className="pt-0.5 text-sm sm:text-lg font-extrabold text-[#0d9488]">
+                <p className="pt-0.5 text-base sm:text-xl font-extrabold text-[#0d9488]">
                   Tricky Toddlers
                 </p>
               </div>
@@ -310,9 +310,9 @@ export function QuizResultsScreen({
                 whileHover={{ scale: 1.02 }}
                 type="button"
                 onClick={onRestartQuiz}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 min-h-[50px] sm:min-h-[52px] px-7 py-3 text-base sm:text-lg font-semibold text-white bg-[#0f2942] hover:bg-[#163a5c] rounded-xl shadow-sm transition-colors cursor-pointer shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0d9488]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 min-h-[52px] sm:min-h-[58px] px-7 sm:px-8 py-3 text-base sm:text-xl font-semibold text-white bg-[#0f2942] hover:bg-[#163a5c] rounded-xl shadow-sm transition-colors cursor-pointer shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0d9488]"
               >
-                <RotateCcw className="w-5 h-5" />
+                <RotateCcw className="w-5 h-5 sm:w-6 sm:h-6" />
                 <span>Restart Quiz</span>
               </motion.button>
             </div>

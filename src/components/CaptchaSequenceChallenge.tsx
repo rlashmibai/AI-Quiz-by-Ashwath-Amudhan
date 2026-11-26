@@ -179,7 +179,7 @@ export function CaptchaSequenceChallenge({
                     Step {slotIdx + 1}
                   </div>
                   <div className="text-xs sm:text-sm font-bold leading-tight truncate">
-                    {chosenStep ? chosenStep.label : '—'}
+                    {chosenStep ? chosenStep.label : '-'}
                   </div>
                 </div>
                 {slotIdx < orderedCorrect.length - 1 && (

@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next';
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: '/',
-    name: 'Artificial Intelligence Quiz — Tricky Toddlers',
+    name: 'Artificial Intelligence Quiz by Tricky Toddlers',
     short_name: 'AI Quiz',
     description:
       'Interactive Artificial Intelligence Quiz by Tricky Toddlers for parents, teachers, and students at the school innovation exhibition.',
