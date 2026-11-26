@@ -214,11 +214,11 @@ export function CaptchaPairsChallenge({
             <span>Connect-the-Pairs CAPTCHA</span>
           </div>
 
-          <h2 className="font-display text-lg sm:text-2xl lg:text-[1.65rem] font-bold leading-snug">
+          <h2 className="font-display text-xl sm:text-[1.75rem] lg:text-[2rem] font-bold leading-snug">
             {question}
           </h2>
 
-          <p className="text-xs sm:text-base opacity-95 font-medium leading-snug">
+          <p className="text-sm sm:text-lg opacity-95 font-medium leading-snug">
             {instruction}
           </p>
         </div>

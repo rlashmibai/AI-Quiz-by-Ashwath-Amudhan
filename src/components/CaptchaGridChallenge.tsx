@@ -152,11 +152,21 @@ export function CaptchaGridChallenge({
             <span>AI Verification CAPTCHA</span>
           </div>
 
-          <h2 className="font-display text-lg sm:text-2xl lg:text-[1.65rem] font-bold leading-snug">
+          <h2
+            className={`font-display font-bold leading-snug ${
+              isTextTerms
+                ? 'text-lg sm:text-2xl lg:text-[1.65rem]'
+                : 'text-xl sm:text-[1.75rem] lg:text-[2rem]'
+            }`}
+          >
             {question}
           </h2>
 
-          <p className="text-xs sm:text-base opacity-95 font-medium leading-snug">
+          <p
+            className={`opacity-95 font-medium leading-snug ${
+              isTextTerms ? 'text-xs sm:text-base' : 'text-sm sm:text-lg'
+            }`}
+          >
             {instruction}
           </p>
         </div>

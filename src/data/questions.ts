@@ -145,7 +145,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   {
     id: 3,
     type: 'text',
-    question: 'Who is commonly known as the Father of Artificial Intelligence?',
+    question: 'Who coined the term "Artificial Intelligence" (AI)?',
     options: [
       { text: 'A. Elon Musk' },
       { text: 'B. Bill Gates' },
@@ -200,9 +200,9 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     question: 'What is an instruction or question given to an AI tool called?',
     options: [
       { text: 'A. Password' },
-      { text: 'B. Commandment' },
+      { text: 'B. Command' },
       { text: 'C. Prompt' },
-      { text: 'D. Notification' },
+      { text: 'D. Search' },
     ],
     correctIndex: 2,
     explanation:

@@ -130,11 +130,11 @@ export function CaptchaSequenceChallenge({
             <span>AI Pipeline Assembly CAPTCHA</span>
           </div>
 
-          <h2 className="font-display text-lg sm:text-2xl lg:text-[1.65rem] font-bold leading-snug">
+          <h2 className="font-display text-xl sm:text-[1.65rem] lg:text-[1.9rem] font-bold leading-snug">
             {question}
           </h2>
 
-          <p className="text-xs sm:text-base text-indigo-100 font-medium leading-snug">
+          <p className="text-sm sm:text-[1.05rem] text-indigo-100 font-medium leading-snug">
             {instruction}
           </p>
         </div>
