@@ -121,26 +121,26 @@ export function CaptchaSequenceChallenge({
   };
 
   return (
-    <section className="rounded-2xl sm:rounded-3xl border border-indigo-400/40 bg-gradient-to-br from-purple-700 via-indigo-700 to-blue-700 text-white shadow-sm overflow-hidden flex flex-col landscape:grid landscape:grid-cols-12">
-      {/* Left Column in Landscape */}
-      <div className="landscape:col-span-5 flex flex-col justify-between gap-3 p-4 sm:p-5 bg-white/10 border-b landscape:border-b-0 landscape:border-r border-white/20">
+    <section className="flex-1 rounded-2xl sm:rounded-3xl border border-indigo-400/40 bg-gradient-to-br from-purple-700 via-indigo-700 to-blue-700 text-white shadow-sm overflow-hidden flex flex-col min-[820px]:landscape:grid min-[820px]:landscape:grid-cols-12 lg:grid lg:grid-cols-12">
+      {/* Left Column in Landscape Tablet & Laptop */}
+      <div className="min-[820px]:landscape:col-span-5 lg:col-span-5 flex flex-col justify-between gap-3 p-4 sm:p-5 lg:p-6 bg-white/10 border-b min-[820px]:landscape:border-b-0 min-[820px]:landscape:border-r lg:border-b-0 lg:border-r border-white/20">
         <div className="space-y-1.5">
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-cyan-200">
+          <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-cyan-200">
             <Cpu className="w-4 h-4" />
             <span>AI Pipeline Assembly CAPTCHA</span>
           </div>
 
-          <h2 className="font-display text-xl sm:text-2xl lg:text-[1.65rem] font-bold leading-snug">
+          <h2 className="font-display text-lg sm:text-2xl lg:text-[1.65rem] font-bold leading-snug">
             {question}
           </h2>
 
-          <p className="text-sm sm:text-base text-indigo-100 font-medium leading-snug">
+          <p className="text-xs sm:text-base text-indigo-100 font-medium leading-snug">
             {instruction}
           </p>
         </div>
 
         {/* Arrow-Connected Sequence Slots */}
-        <div className="rounded-xl bg-white/95 text-[#0f2942] p-2.5 grid grid-cols-2 gap-2">
+        <div className="rounded-xl bg-white/95 text-[#0f2942] p-2 sm:p-2.5 grid grid-cols-2 sm:grid-cols-4 min-[820px]:landscape:grid-cols-2 lg:grid-cols-2 gap-1.5 sm:gap-2">
           {orderedCorrect.map((_, slotIdx) => {
             const chosenId = selectedOrder[slotIdx];
             const chosenStep = steps.find((s) => s.id === chosenId);
@@ -170,7 +170,7 @@ export function CaptchaSequenceChallenge({
                 type="button"
                 disabled={verified || !chosenStep}
                 onClick={() => handleSlotClick(slotIdx)}
-                className={`min-h-[46px] px-2.5 py-1.5 rounded-lg border-2 text-left transition-colors flex items-center justify-between gap-1.5 ${slotStyle} ${
+                className={`min-h-[44px] sm:min-h-[46px] px-2 sm:px-2.5 py-1.5 rounded-lg border-2 text-left transition-colors flex items-center justify-between gap-1.5 ${slotStyle} ${
                   !verified && chosenStep ? 'cursor-pointer' : 'cursor-default'
                 }`}
               >
@@ -194,7 +194,7 @@ export function CaptchaSequenceChallenge({
         {!verified ? (
           <div className="pt-2 border-t border-white/20 space-y-2">
             <div className="flex items-center justify-between gap-2">
-              <span className="text-sm sm:text-base font-semibold tabular-nums">
+              <span className="text-xs sm:text-base font-semibold tabular-nums">
                 {selectedOrder.length} / {steps.length} steps selected
               </span>
               {selectedOrder.length > 0 && (
@@ -202,9 +202,9 @@ export function CaptchaSequenceChallenge({
                   whileTap={{ scale: 0.94 }}
                   type="button"
                   onClick={handleReset}
-                  className="inline-flex items-center gap-1.5 min-h-[44px] text-sm font-semibold px-3.5 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm font-semibold px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white transition-colors cursor-pointer"
                 >
-                  <RotateCcw className="w-4 h-4" />
+                  <RotateCcw className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span>Reset</span>
                 </motion.button>
               )}
@@ -215,7 +215,7 @@ export function CaptchaSequenceChallenge({
               type="button"
               disabled={!allSelected}
               onClick={handleVerify}
-              className={`w-full min-h-[48px] px-6 py-2.5 text-base sm:text-lg font-bold tracking-wide rounded-xl transition-colors ${
+              className={`w-full min-h-[46px] sm:min-h-[48px] px-6 py-2.5 text-sm sm:text-lg font-bold tracking-wide rounded-xl transition-colors ${
                 !allSelected
                   ? 'bg-white/20 text-white/50 cursor-not-allowed'
                   : 'bg-white text-[#0f2942] hover:bg-slate-100 shadow-sm cursor-pointer'
@@ -230,7 +230,7 @@ export function CaptchaSequenceChallenge({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 360, damping: 24 }}
             aria-live="polite"
-            className={`rounded-2xl border p-3.5 space-y-2.5 ${
+            className={`rounded-2xl border p-3 sm:p-3.5 space-y-2.5 ${
               passed
                 ? 'bg-emerald-50 border-emerald-300 text-emerald-950'
                 : 'bg-red-50 border-red-300 text-red-950'
@@ -249,7 +249,7 @@ export function CaptchaSequenceChallenge({
                     : 'Order: 1. Collect → 2. Prepare → 3. Train → 4. Evaluate'}
                 </p>
                 {explanation && (
-                  <p className="text-sm sm:text-base leading-snug opacity-95">
+                  <p className="text-xs sm:text-base leading-snug opacity-95">
                     {explanation}
                   </p>
                 )}
@@ -260,18 +260,18 @@ export function CaptchaSequenceChallenge({
               whileTap={{ scale: 0.95 }}
               type="button"
               onClick={onProceedNext}
-              className="w-full inline-flex items-center justify-center gap-2 min-h-[46px] px-5 py-2 text-base font-semibold text-white bg-[#0f2942] hover:bg-[#163a5c] rounded-xl transition-colors cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 min-h-[44px] sm:min-h-[46px] px-5 py-2 text-sm sm:text-base font-semibold text-white bg-[#0f2942] hover:bg-[#163a5c] rounded-xl transition-colors cursor-pointer"
             >
               <span>{isLastQuestion ? 'View Score' : 'Next Question'}</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.button>
           </motion.div>
         )}
       </div>
 
-      {/* Right Column in Landscape: 2x2 Illustrated Cards */}
-      <div className="landscape:col-span-7 p-3.5 sm:p-4 bg-white/95 text-[#0f2942] flex flex-col justify-center">
-        <div className="grid grid-cols-2 gap-3">
+      {/* Right Column in Landscape Tablet & Laptop: 2x2 Illustrated Cards */}
+      <div className="min-[820px]:landscape:col-span-7 lg:col-span-7 p-3 sm:p-4 lg:p-5 bg-white/95 text-[#0f2942] flex flex-col justify-center">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3">
           {randomizedSteps.map((step, idx) => {
             const seqPosition = selectedOrder.indexOf(step.id);
             const isSelected = seqPosition !== -1;
@@ -296,7 +296,7 @@ export function CaptchaSequenceChallenge({
                 type="button"
                 disabled={verified}
                 onClick={() => handleToggleStep(step.id)}
-                className={`relative rounded-xl border-2 p-2.5 text-center transition-colors duration-150 flex flex-col items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${cardStyle} ${
+                className={`relative rounded-xl border-2 p-2 sm:p-2.5 text-center transition-colors duration-150 flex flex-col items-center gap-1.5 sm:gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${cardStyle} ${
                   !verified ? 'cursor-pointer' : 'cursor-default'
                 }`}
               >
@@ -305,13 +305,13 @@ export function CaptchaSequenceChallenge({
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 520, damping: 20 }}
-                    className="absolute top-2 right-2 w-7 h-7 rounded-full bg-blue-600 text-white font-bold text-sm flex items-center justify-center shadow-sm z-10 tabular-nums"
+                    className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-blue-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center shadow-sm z-10 tabular-nums"
                   >
                     {seqPosition + 1}
                   </motion.span>
                 )}
 
-                <div className="w-full h-28 sm:h-32 rounded-lg overflow-hidden bg-white border border-white shadow-xs">
+                <div className="w-full h-24 sm:h-28 md:h-32 rounded-lg overflow-hidden bg-white border border-white shadow-xs">
                   <img
                     src={step.imageSrc}
                     alt={step.label}
@@ -319,7 +319,7 @@ export function CaptchaSequenceChallenge({
                   />
                 </div>
 
-                <span className="text-sm sm:text-base font-bold text-[#0f2942] leading-tight">
+                <span className="text-xs sm:text-sm md:text-base font-bold text-[#0f2942] leading-tight">
                   {step.label}
                 </span>
               </motion.button>

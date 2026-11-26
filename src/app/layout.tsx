@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const viewport: Viewport = {
+  themeColor: '#0f2942',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -13,6 +14,18 @@ export const metadata: Metadata = {
   title: 'Artificial Intelligence Quiz — Tricky Toddlers',
   description:
     'Artificial Intelligence Quiz by Tricky Toddlers for parents, teachers, and students at the school innovation exhibition.',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'AI Quiz',
+  },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/pwa-192x192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: 'Artificial Intelligence Quiz — Tricky Toddlers',
     description:

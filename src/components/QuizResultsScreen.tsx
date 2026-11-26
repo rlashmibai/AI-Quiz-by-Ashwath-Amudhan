@@ -214,7 +214,7 @@ export function QuizResultsScreen({
   }, [tier.showConfetti]);
 
   return (
-    <main className="min-h-dvh w-full flex items-center justify-center p-4 sm:p-6 md:p-8 overflow-y-auto">
+    <main className="min-h-dvh w-full flex flex-col p-2.5 sm:p-4 md:p-6 overflow-y-auto">
       {tier.showConfetti && <ConfettiBurst />}
 
       <motion.section
@@ -222,11 +222,11 @@ export function QuizResultsScreen({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: 'spring', stiffness: 320, damping: 24 }}
         aria-labelledby="quiz-completed-title"
-        className={`relative z-10 w-full max-w-5xl rounded-3xl border-2 bg-white shadow-lg overflow-hidden ring-4 ${tier.ringClass}`}
+        className={`relative z-10 w-full flex-1 flex flex-col rounded-2xl sm:rounded-3xl border-2 bg-white shadow-lg overflow-hidden ring-4 ${tier.ringClass}`}
       >
         {/* Colourful Celebratory Top Ribbon */}
         <div
-          className={`bg-gradient-to-r ${tier.gradientClass} px-6 py-4 sm:px-8 sm:py-5 text-white flex flex-wrap items-center justify-between gap-3`}
+          className={`bg-gradient-to-r ${tier.gradientClass} px-5 py-4 sm:px-8 sm:py-5 text-white flex flex-col sm:flex-row sm:items-center items-start justify-between gap-3`}
         >
           <div className="space-y-0.5">
             <p className="text-xs sm:text-sm font-bold uppercase tracking-widest opacity-90">
@@ -240,23 +240,23 @@ export function QuizResultsScreen({
             </h1>
           </div>
 
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-xs border border-white/30 px-4 py-2 rounded-2xl">
-            <Sparkles className="w-5 h-5 shrink-0" aria-hidden="true" />
-            <span className="font-display text-lg sm:text-xl font-extrabold tracking-wide">
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-xs border border-white/30 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl">
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" aria-hidden="true" />
+            <span className="font-display text-base sm:text-xl font-extrabold tracking-wide">
               {tier.title}
             </span>
           </div>
         </div>
 
         {/* Screenshot-Worthy 2-Column Achievement Certificate Body */}
-        <div className="p-5 sm:p-7 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+        <div className="flex-1 p-4 sm:p-7 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-center">
           {/* Left Visual Achievement Badge & Illustration */}
-          <div className="md:col-span-5 flex flex-col items-center text-center gap-3.5">
+          <div className="md:col-span-5 flex flex-col items-center text-center gap-3">
             <motion.div
               initial={{ scale: 0.85, rotate: -4 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 18, delay: 0.1 }}
-              className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-3xl overflow-hidden border-4 border-white shadow-md ring-2 ring-slate-200/80"
+              className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-white shadow-md ring-2 ring-slate-200/80"
             >
               <img
                 src={tier.imageSrc}
@@ -266,7 +266,7 @@ export function QuizResultsScreen({
             </motion.div>
 
             <div
-              className={`inline-flex items-center gap-2 px-5 py-2 rounded-2xl font-display text-lg sm:text-xl font-bold shadow-xs ${tier.badgeBgClass}`}
+              className={`inline-flex items-center gap-2 px-4 py-1.5 sm:px-5 sm:py-2 rounded-2xl font-display text-base sm:text-xl font-bold shadow-xs ${tier.badgeBgClass}`}
             >
               <AchievementIcon id={tier.id} />
               <span>{tier.title}</span>
@@ -274,33 +274,33 @@ export function QuizResultsScreen({
           </div>
 
           {/* Right Score, Encouraging Message, Thank You & Restart */}
-          <div className="md:col-span-7 flex flex-col items-center md:items-start text-center md:text-left space-y-4">
+          <div className="md:col-span-7 flex flex-col items-center md:items-start text-center md:text-left space-y-3.5 sm:space-y-4">
             <div>
-              <p className="text-base sm:text-lg font-semibold text-slate-500">
+              <p className="text-sm sm:text-lg font-semibold text-slate-500">
                 Your Score
               </p>
               <div
-                className={`mt-0.5 font-display text-5xl sm:text-6xl font-extrabold tabular-nums ${tier.scoreColorClass}`}
+                className={`mt-0.5 font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tabular-nums ${tier.scoreColorClass}`}
               >
                 {finalScore} / 100
               </div>
             </div>
 
-            <div className="w-full rounded-2xl bg-slate-50 border border-slate-200/80 p-4">
-              <p className="text-base sm:text-lg font-semibold text-[#0f2942] leading-snug">
+            <div className="w-full rounded-2xl bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4">
+              <p className="text-sm sm:text-lg font-semibold text-[#0f2942] leading-snug">
                 {tier.message}
               </p>
             </div>
 
             <div className="w-full pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="space-y-0.5">
-                <p className="text-lg sm:text-xl font-bold text-[#0f2942]">
+                <p className="text-base sm:text-xl font-bold text-[#0f2942]">
                   Thank you for participating!
                 </p>
-                <p className="text-sm sm:text-base text-slate-600">
+                <p className="text-xs sm:text-base text-slate-600">
                   Keep exploring. Keep learning.
                 </p>
-                <p className="pt-0.5 text-base sm:text-lg font-extrabold text-[#0d9488]">
+                <p className="pt-0.5 text-sm sm:text-lg font-extrabold text-[#0d9488]">
                   Tricky Toddlers
                 </p>
               </div>
@@ -310,7 +310,7 @@ export function QuizResultsScreen({
                 whileHover={{ scale: 1.02 }}
                 type="button"
                 onClick={onRestartQuiz}
-                className="inline-flex items-center justify-center gap-2.5 min-h-[52px] px-7 py-3 text-base sm:text-lg font-semibold text-white bg-[#0f2942] hover:bg-[#163a5c] rounded-xl shadow-sm transition-colors cursor-pointer shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0d9488]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 min-h-[50px] sm:min-h-[52px] px-7 py-3 text-base sm:text-lg font-semibold text-white bg-[#0f2942] hover:bg-[#163a5c] rounded-xl shadow-sm transition-colors cursor-pointer shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0d9488]"
               >
                 <RotateCcw className="w-5 h-5" />
                 <span>Restart Quiz</span>

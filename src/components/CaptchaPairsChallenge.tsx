@@ -205,28 +205,28 @@ export function CaptchaPairsChallenge({
     randomizedRight.find((r) => r.id === rightId)?.label ?? '';
 
   return (
-    <section className="rounded-2xl sm:rounded-3xl border border-indigo-200 bg-gradient-to-br from-indigo-600 via-blue-600 to-teal-500 text-white shadow-sm overflow-hidden flex flex-col landscape:grid landscape:grid-cols-12">
-      {/* Left Column in Landscape */}
-      <div className="landscape:col-span-5 flex flex-col justify-between gap-4 p-4 sm:p-5 bg-white/10 border-b landscape:border-b-0 landscape:border-r border-white/20">
-        <div className="space-y-2">
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider opacity-90">
+    <section className="flex-1 rounded-2xl sm:rounded-3xl border border-indigo-200 bg-gradient-to-br from-indigo-600 via-blue-600 to-teal-500 text-white shadow-sm overflow-hidden flex flex-col min-[820px]:landscape:grid min-[820px]:landscape:grid-cols-12 lg:grid lg:grid-cols-12">
+      {/* Left Column in Landscape Tablet & Laptop */}
+      <div className="min-[820px]:landscape:col-span-5 lg:col-span-5 flex flex-col justify-between gap-3.5 sm:gap-4 p-4 sm:p-5 lg:p-6 bg-white/10 border-b min-[820px]:landscape:border-b-0 min-[820px]:landscape:border-r lg:border-b-0 lg:border-r border-white/20">
+        <div className="space-y-1.5 sm:space-y-2">
+          <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider opacity-90">
             <ShieldCheck className="w-4 h-4" />
             <span>Connect-the-Pairs CAPTCHA</span>
           </div>
 
-          <h2 className="font-display text-xl sm:text-2xl lg:text-[1.65rem] font-bold leading-snug">
+          <h2 className="font-display text-lg sm:text-2xl lg:text-[1.65rem] font-bold leading-snug">
             {question}
           </h2>
 
-          <p className="text-sm sm:text-base opacity-95 font-medium leading-snug">
+          <p className="text-xs sm:text-base opacity-95 font-medium leading-snug">
             {instruction}
           </p>
         </div>
 
         {!verified ? (
-          <div className="pt-3 border-t border-white/20 space-y-2.5">
+          <div className="pt-2.5 sm:pt-3 border-t border-white/20 space-y-2.5">
             <div className="flex items-center justify-between gap-2">
-              <span className="inline-flex items-center gap-1.5 text-sm sm:text-base font-semibold tabular-nums">
+              <span className="inline-flex items-center gap-1.5 text-xs sm:text-base font-semibold tabular-nums">
                 <Link2 className="w-4 h-4" />
                 <span>
                   {connectedCount} / {randomizedLeft.length} pairs matched
@@ -238,9 +238,9 @@ export function CaptchaPairsChallenge({
                   whileTap={{ scale: 0.94 }}
                   type="button"
                   onClick={handleReset}
-                  className="inline-flex items-center gap-1.5 min-h-[44px] text-sm font-semibold px-3.5 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm font-semibold px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white transition-colors cursor-pointer"
                 >
-                  <RotateCcw className="w-4 h-4" />
+                  <RotateCcw className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span>Reset</span>
                 </motion.button>
               )}
@@ -251,7 +251,7 @@ export function CaptchaPairsChallenge({
               type="button"
               disabled={!allConnected}
               onClick={handleVerify}
-              className={`w-full min-h-[50px] px-6 py-2.5 text-base sm:text-lg font-bold tracking-wide rounded-xl transition-colors ${
+              className={`w-full min-h-[46px] sm:min-h-[50px] px-6 py-2.5 text-sm sm:text-lg font-bold tracking-wide rounded-xl transition-colors ${
                 !allConnected
                   ? 'bg-white/20 text-white/50 cursor-not-allowed'
                   : 'bg-white text-[#0f2942] hover:bg-slate-100 shadow-sm cursor-pointer'
@@ -266,7 +266,7 @@ export function CaptchaPairsChallenge({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 360, damping: 24 }}
             aria-live="polite"
-            className={`rounded-2xl border p-3.5 sm:p-4 space-y-3 ${
+            className={`rounded-2xl border p-3 sm:p-4 space-y-2.5 sm:space-y-3 ${
               passed
                 ? 'bg-emerald-50 border-emerald-300 text-emerald-950'
                 : 'bg-red-50 border-red-300 text-red-950'
@@ -274,18 +274,18 @@ export function CaptchaPairsChallenge({
           >
             <div className="flex items-start gap-2.5">
               {passed ? (
-                <CheckCircle2 className="w-6 h-6 text-emerald-700 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-700 shrink-0 mt-0.5" />
               ) : (
-                <XCircle className="w-6 h-6 text-red-700 shrink-0 mt-0.5" />
+                <XCircle className="w-5 h-5 sm:w-6 sm:h-6 text-red-700 shrink-0 mt-0.5" />
               )}
               <div className="space-y-1 min-w-0">
-                <p className="text-base sm:text-lg font-bold leading-snug">
+                <p className="text-sm sm:text-lg font-bold leading-snug">
                   {passed
                     ? 'Correct Answer! All pairs matched!'
                     : 'ChatGPT → OpenAI · Gemini → Google · Claude → Anthropic · Llama → Meta'}
                 </p>
                 {explanation && (
-                  <p className="text-sm sm:text-base leading-snug opacity-95">
+                  <p className="text-xs sm:text-base leading-snug opacity-95">
                     {explanation}
                   </p>
                 )}
@@ -296,20 +296,20 @@ export function CaptchaPairsChallenge({
               whileTap={{ scale: 0.95 }}
               type="button"
               onClick={onProceedNext}
-              className="w-full inline-flex items-center justify-center gap-2 min-h-[48px] px-5 py-2 text-base font-semibold text-white bg-[#0f2942] hover:bg-[#163a5c] rounded-xl transition-colors cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 min-h-[44px] sm:min-h-[48px] px-5 py-2 text-sm sm:text-base font-semibold text-white bg-[#0f2942] hover:bg-[#163a5c] rounded-xl transition-colors cursor-pointer"
             >
               <span>{isLastQuestion ? 'View Score' : 'Next Question'}</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.button>
           </motion.div>
         )}
       </div>
 
-      {/* Right Column in Landscape: 2-Column Matching Canvas */}
-      <div className="landscape:col-span-7 p-4 sm:p-5 bg-white text-[#0f2942] flex flex-col justify-center">
+      {/* Right Column in Landscape Tablet & Laptop: 2-Column Matching Canvas */}
+      <div className="min-[820px]:landscape:col-span-7 lg:col-span-7 p-3 sm:p-5 lg:p-6 bg-white text-[#0f2942] flex flex-col justify-center">
         <div
           ref={containerRef}
-          className="relative grid grid-cols-2 gap-10 sm:gap-14 flex-1 min-h-0"
+          className="relative grid grid-cols-2 gap-5 sm:gap-10 md:gap-14 flex-1 min-h-0"
         >
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible"
@@ -338,11 +338,11 @@ export function CaptchaPairsChallenge({
                     d={pathD}
                     fill="none"
                     stroke={strokeColor}
-                    strokeWidth="4.5"
+                    strokeWidth="4"
                     strokeLinecap="round"
                   />
-                  <circle cx={line.x1} cy={line.y1} r="5" fill={strokeColor} />
-                  <circle cx={line.x2} cy={line.y2} r="5" fill={strokeColor} />
+                  <circle cx={line.x1} cy={line.y1} r="4.5" fill={strokeColor} />
+                  <circle cx={line.x2} cy={line.y2} r="4.5" fill={strokeColor} />
                 </g>
               );
             })}
@@ -350,7 +350,7 @@ export function CaptchaPairsChallenge({
 
           {/* Left Column */}
           <div className="flex flex-col gap-2 min-h-0 relative z-20">
-            <div className="shrink-0 text-xs font-bold uppercase tracking-wider text-slate-500 px-1">
+            <div className="shrink-0 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 px-1">
               AI Tools
             </div>
             {randomizedLeft.map((item, idx) => {
@@ -385,22 +385,22 @@ export function CaptchaPairsChallenge({
                   type="button"
                   disabled={verified}
                   onClick={() => handleLeftTap(item.id)}
-                  className={`flex-1 min-h-[52px] w-full flex items-center gap-3 px-3 py-2 rounded-xl border-2 text-left transition-colors ${cardClass} ${
+                  className={`flex-1 min-h-[48px] sm:min-h-[56px] w-full flex items-center gap-2 sm:gap-3 px-2 py-2 sm:px-3 sm:py-2.5 rounded-xl border-2 text-left transition-colors ${cardClass} ${
                     !verified ? 'cursor-pointer' : 'cursor-default'
                   }`}
                 >
                   <img
                     src={item.logoSrc}
                     alt={item.label}
-                    className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 object-contain"
+                    className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 shrink-0 object-contain"
                   />
                   <div className="min-w-0 flex-1">
-                    <div className="text-sm sm:text-base font-bold text-slate-900 truncate">
+                    <div className="text-xs sm:text-sm md:text-base font-bold text-slate-900 truncate">
                       {item.label}
                     </div>
                     {connectedRightId && !verified && (
                       <div
-                        className="text-xs font-semibold truncate leading-tight"
+                        className="text-[11px] sm:text-xs font-semibold truncate leading-tight"
                         style={{ color: pairColor }}
                       >
                         → {getRightLabel(connectedRightId)}
@@ -414,7 +414,7 @@ export function CaptchaPairsChallenge({
 
           {/* Right Column */}
           <div className="flex flex-col gap-2 min-h-0 relative z-20">
-            <div className="shrink-0 text-xs font-bold uppercase tracking-wider text-slate-500 px-1 text-right">
+            <div className="shrink-0 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 px-1 text-right">
               Companies
             </div>
             {randomizedRight.map((company) => {
@@ -452,17 +452,17 @@ export function CaptchaPairsChallenge({
                   type="button"
                   disabled={verified}
                   onClick={() => handleRightTap(company.id)}
-                  className={`flex-1 min-h-[52px] w-full flex items-center gap-3 px-3 py-2 rounded-xl border-2 text-left transition-colors ${cardClass} ${
+                  className={`flex-1 min-h-[48px] sm:min-h-[56px] w-full flex items-center gap-2 sm:gap-3 px-2 py-2 sm:px-3 sm:py-2.5 rounded-xl border-2 text-left transition-colors ${cardClass} ${
                     !verified ? 'cursor-pointer' : 'cursor-default'
                   }`}
                 >
                   <img
                     src={company.logoSrc}
                     alt={company.label}
-                    className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 object-contain"
+                    className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 shrink-0 object-contain"
                   />
                   <div className="min-w-0 flex-1">
-                    <div className="text-sm sm:text-base font-bold text-slate-900 truncate">
+                    <div className="text-xs sm:text-sm md:text-base font-bold text-slate-900 truncate">
                       {company.label}
                     </div>
                   </div>
